@@ -1,0 +1,210 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C8A34690-3A50-43D4-8607-25F49BBB0464}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>NGCCustomActivities</RootNamespace>
+    <AssemblyName>NGCCustomActivities</AssemblyName>
+    <ProjectTypeGuids>{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Sign.snk</AssemblyOriginatorKeyFile>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SharePoint, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="microsoft.sharepoint.WorkflowActions, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="System.Workflow.Activities" />
+    <Reference Include="System.Workflow.ComponentModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Workflow.Runtime" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CallWorkflow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CallWorkflow.Designer.cs">
+      <DependentUpon>CallWorkflow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeatureCode\NGCCustomActivities.cs" />
+    <Compile Include="HaltWorkflow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HaltWorkflow.Designer.cs">
+      <DependentUpon>HaltWorkflow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IsWorkflowRunning.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IsWorkflowRunning.Designer.cs">
+      <DependentUpon>IsWorkflowRunning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="12\Template\1033\Workflow\NGCCustomActivities.ACTIONS" />
+    <None Include="NGCCustomActivities.wsp" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Sign.snk" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RestartThisWorkflow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RestartThisWorkflow.Designer.cs">
+      <DependentUpon>RestartThisWorkflow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SendToRecordCenter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SendToRecordCenter.Designer.cs">
+      <DependentUpon>SendToRecordCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartWorkflow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StartWorkflow.Designer.cs">
+      <DependentUpon>StartWorkflow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StringLCase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StringLCase.Designer.cs">
+      <DependentUpon>StringLCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StringLeft.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StringLeft.Designer.cs">
+      <DependentUpon>StringLeft.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StringLength.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StringLength.Designer.cs">
+      <DependentUpon>StringLength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StringMid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StringMid.Designer.cs">
+      <DependentUpon>StringMid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StringPosition.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StringPosition.Designer.cs">
+      <DependentUpon>StringPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StringRight.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StringRight.Designer.cs">
+      <DependentUpon>StringRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StringTrim.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StringTrim.Designer.cs">
+      <DependentUpon>StringTrim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StringUCase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StringUCase.Designer.cs">
+      <DependentUpon>StringUCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestCondition.cs" />
+    <Compile Include="TraceProvider.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="WhileWorkflow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WhileWorkflow.Designer.cs">
+      <DependentUpon>WhileWorkflow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteTraceLog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WriteTraceLog.Designer.cs">
+      <DependentUpon>WriteTraceLog.cs</DependentUpon>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="12\Template\FEATURES\NGCCustomActivities\elements.xml" />
+    <Content Include="12\Template\FEATURES\NGCCustomActivities\feature.xml" />
+    <Content Include="AuthorizedType.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CallWorkflow.rules">
+      <DependentUpon>CallWorkflow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HaltWorkflow.rules">
+      <DependentUpon>HaltWorkflow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IsWorkflowRunning.rules">
+      <DependentUpon>IsWorkflowRunning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartWorkflow.rules">
+      <DependentUpon>StartWorkflow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WhileWorkflow.rules">
+      <DependentUpon>WhileWorkflow.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Windows Workflow Foundation\v3.5\Workflow.Targets" />
+  <PropertyGroup>
+    <PostBuildEvent>rem "E:\Program Files\Microsoft SDKs\Windows\v6.1\Bin\gacutil" -I "E:\Projects\NGCCustomActivities.root\NGCCustomActivities\NGCCustomActivities\bin\debug\NGCCustomActivities.dll"
+rem net stop sptimerv3
+rem net start sptimerv3
+rem iisreset</PostBuildEvent>
+  </PropertyGroup>
+</Project>

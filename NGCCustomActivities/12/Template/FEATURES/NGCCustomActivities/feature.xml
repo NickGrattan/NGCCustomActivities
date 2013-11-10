@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature  Id="853a1bfb-d1a8-4c71-b93d-eaef339c17ae"
+          Title="NGCCustomActivities"
+          Description="Custom workflow activities from Nick Grattan Consultancy"
+          Version="12.0.0.0"
+          Hidden="TRUE"
+          Scope="Farm"
+          DefaultResourceFile="core"
+          ReceiverAssembly="NGCCustomActivities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+          ReceiverClass="NGCCustomActivities.NGCCustomActivitiesER"
+          xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ElementManifests>
+    <ElementManifest Location="elements.xml"/>
+  </ElementManifests>
+</Feature>

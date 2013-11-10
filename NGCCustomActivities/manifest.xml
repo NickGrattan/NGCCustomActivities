@@ -1,0 +1,13 @@
+﻿<?xml version="1.0"?>
+<!-- Solution created by WSPBuilder. 10/11/2013 10:28:47  -->
+<Solution SolutionId="58e8301d-702d-4dcd-aa85-5cc86fd06ab6" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Assemblies>
+    <Assembly Location="NGCCustomActivities.dll" DeploymentTarget="GlobalAssemblyCache" />
+  </Assemblies>
+  <TemplateFiles>
+    <TemplateFile Location="1033\Workflow\NGCCustomActivities.ACTIONS" />
+  </TemplateFiles>
+  <FeatureManifests>
+    <FeatureManifest Location="NGCCustomActivities\feature.xml" />
+  </FeatureManifests>
+</Solution>

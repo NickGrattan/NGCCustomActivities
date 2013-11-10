@@ -1,0 +1,258 @@
+﻿<WorkflowInfo>
+  <!-- Nick Grattan Consultancy Custom Workflow actions -->
+  <!-- See www.nickgrattan.net for more details -->
+  <!-- Version 1.1 -->
+  <Actions Sequential="then" Parallel="and">
+
+    <Action Name="Start Workflow"
+        ClassName="NGCCustomActivities.StartWorkflow"
+        Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+        AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Start Workflow %1">
+        <FieldBind Field="WorkflowName" DesignerType="Stringbuilder" Id="1"/>
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="__Context" Type="Microsoft.SharePoint.WorkflowActions.WorkflowContext, Microsoft.SharePoint.WorkflowActions" Direction="In"/>
+        <Parameter Name="__ListId" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="__ListItem" Type="System.Int32, mscorlib" Direction="In" />
+        <Parameter Name="__ActivationProperties" Type="Microsoft.SharePoint.Workflow.SPWorkflowActivationProperties, Microsoft.SharePoint" Direction="In" />
+        <Parameter Name="WorkflowName" Type="System.String, mscorlib" Direction="In" />
+      </Parameters>
+    </Action>
+
+    <Action Name="Call Workflow"
+        ClassName="NGCCustomActivities.CallWorkflow" 
+        Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+        AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Call Workflow %1">
+        <FieldBind Field="CallWorkflowName" DesignerType="Stringbuilder" Id="1"/>
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="__Context" Type="Microsoft.SharePoint.WorkflowActions.WorkflowContext, Microsoft.SharePoint.WorkflowActions" Direction="In"/>
+        <Parameter Name="__ListId" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="__ListItem" Type="System.Int32, mscorlib" Direction="In" />
+        <Parameter Name="__ActivationProperties" Type="Microsoft.SharePoint.Workflow.SPWorkflowActivationProperties, Microsoft.SharePoint" Direction="In" />
+        <Parameter Name="CallWorkflowName" Type="System.String, mscorlib" Direction="In" />
+      </Parameters>
+    </Action>
+
+    <Action Name="While Workflow"
+      ClassName="NGCCustomActivities.WhileWorkflow"
+      Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+      AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="While %1 Call Workflow %2">
+        <FieldBind Field="WhileCondition" DesignerType="Stringbuilder" Id="1" />
+        <FieldBind Field="WhileWorkflowName" DesignerType="Stringbuilder" Id="2"/>
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="__Context" Type="Microsoft.SharePoint.WorkflowActions.WorkflowContext, Microsoft.SharePoint.WorkflowActions" Direction="In"/>
+        <Parameter Name="__ListId" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="__ListItem" Type="System.Int32, mscorlib" Direction="In" />
+        <Parameter Name="__ActivationProperties" Type="Microsoft.SharePoint.Workflow.SPWorkflowActivationProperties, Microsoft.SharePoint" Direction="In" />
+        <Parameter Name="WhileCondition" Type="System.String, mscorlib" Direction="In" InitialValue="True"/>
+        <Parameter Name="WhileWorkflowName" Type="System.String, mscorlib" Direction="In" />
+      </Parameters>
+    </Action>
+
+    <Action Name="Is Workflow Running"
+      ClassName="NGCCustomActivities.IsWorkflowRunning"
+      Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+      AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Is Workflow %1 Running Output into %2">
+        <FieldBind Field="TestWorkflowName" DesignerType="Stringbuilder" Id="1"/>
+        <FieldBind Field="WorkflowRunning" Text ="IsRunning" DesignerType="ParameterNames" Id="2"/>
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="__Context" Type="Microsoft.SharePoint.WorkflowActions.WorkflowContext, Microsoft.SharePoint.WorkflowActions" Direction="In"/>
+        <Parameter Name="__ListId" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="__ListItem" Type="System.Int32, mscorlib" Direction="In" />
+        <Parameter Name="__ActivationProperties" Type="Microsoft.SharePoint.Workflow.SPWorkflowActivationProperties, Microsoft.SharePoint" Direction="In" />
+        <Parameter Name="TestWorkflowName" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="WorkflowRunning" Type="System.Boolean, mscorlib" Direction="Out" />
+      </Parameters>
+    </Action>
+
+    <Action Name="Halt Workflow"
+      ClassName="NGCCustomActivities.HaltWorkflow"
+      Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+      AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Halt Workflow %1">
+        <FieldBind Field="WorkflowName" DesignerType="Stringbuilder" Id="1"/>
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="__Context" Type="Microsoft.SharePoint.WorkflowActions.WorkflowContext, Microsoft.SharePoint.WorkflowActions" Direction="In"/>
+        <Parameter Name="__ListId" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="__ListItem" Type="System.Int32, mscorlib" Direction="In" />
+        <Parameter Name="WorkflowName" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="__ActivationProperties" Type="Microsoft.SharePoint.Workflow.SPWorkflowActivationProperties, Microsoft.SharePoint" Direction="In" />
+      </Parameters>
+    </Action>
+
+    <Action Name="Restart This Workflow"
+      ClassName="NGCCustomActivities.RestartThisWorkflow"
+      Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+      AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Restart This Workflow">
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="__ActivationProperties" Type="Microsoft.SharePoint.Workflow.SPWorkflowActivationProperties, Microsoft.SharePoint" Direction="In" />
+      </Parameters>
+    </Action>
+    
+    <Action Name="Write to Trace Log"
+     ClassName="NGCCustomActivities.WriteTraceLog"
+     Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+     AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Write Log %3 Proc %1 Cat %2 Area %4 Message %5">
+        <FieldBind Field="Process" DesignerType="TextArea" Id="1"/>
+        <FieldBind Field="Area" DesignerType="TextArea" Id="2"/>
+        <FieldBind Field="Level" Text="Level" Id="3" DesignerType="Operator" OperatorTypeFrom="DropDownMenu" >
+          <Option Name="CriticalEvent" Value="1"/>
+          <Option Name="High" Value="20"/>
+          <Option Name="Medium" Value="50"/>
+          <Option Name="WarningEvent" Value="2"/>
+          <Option Name="InformationEvent" Value="3"/>
+          <Option Name="Verbose" Value="100"/>
+          <Option Name="Monitorable" Value="15"/>
+          <Option Name="Unassigned" Value="0"/>
+          <Option Name="Exception" Value="4"/>
+          <Option Name="Assert" Value="7"/>
+          <Option Name="Unexpected" Value="10"/>
+        </FieldBind>
+        <FieldBind Field="Category" DesignerType="TextArea" Id="4"/>
+        <FieldBind Field="Message" DesignerType="TextArea" Id="5"/>
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="Process" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="Area" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="Category" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="Message" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="Level" Type="System.String, mscorlib" Direction="In" />
+      </Parameters>
+    </Action>
+
+    <!-- String manipulation actions -->
+    <Action Name="String Length"
+    ClassName="NGCCustomActivities.StringLength"
+    Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+    AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Get String Length of %1 Output into %2">
+        <FieldBind Field="TheString" DesignerType="TextArea" Id="1"/>
+        <FieldBind Field="TheLength" Text ="StringLen" DesignerType="ParameterNames" Id="2" />
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="TheString" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="TheLength" Type="System.Double, mscorlib" Direction="Out" />
+      </Parameters>
+    </Action>
+
+    <Action Name="String UpperCase"
+    ClassName="NGCCustomActivities.StringUCase"
+    Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+    AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Upper Case String %1 Output to %2">
+        <FieldBind Field="TheString" DesignerType="TextArea" Id="1"/>
+        <FieldBind Field="TheUCaseString" Text ="StringUCase" DesignerType="ParameterNames" Id="2" />
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="TheString" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="TheUCaseString" Type="System.String, mscorlib" Direction="Out" />
+      </Parameters>
+    </Action>
+
+    <Action Name="String LowerCase"
+    ClassName="NGCCustomActivities.StringLCase"
+    Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+    AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Lower Case String %1 Output to %2">
+        <FieldBind Field="TheString" DesignerType="TextArea" Id="1"/>
+        <FieldBind Field="TheLCaseString" Text ="StringLCase" DesignerType="ParameterNames" Id="2" />
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="TheString" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="TheLCaseString" Type="System.String, mscorlib" Direction="Out" />
+      </Parameters>
+    </Action>
+
+    <Action Name="String Left"
+      ClassName="NGCCustomActivities.StringLeft"
+      Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+      AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Left %1 Chars from String %2 Output to %3">
+        <FieldBind Field="TheCount" DesignerType="TextArea" Id="1"/>
+        <FieldBind Field="TheString" DesignerType="TextArea" Id="2"/>
+        <FieldBind Field="TheLeftString" Text ="StringLeft" DesignerType="ParameterNames" Id="3" />
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="TheCount" Type="System.Double, mscorlib" Direction="In" />
+        <Parameter Name="TheString" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="TheLeftString" Type="System.String, mscorlib" Direction="Out" />
+      </Parameters>
+    </Action>
+
+    <Action Name="String Right"
+          ClassName="NGCCustomActivities.StringRight"
+          Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+          AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Right %1 Chars from String %2 Output to %3">
+        <FieldBind Field="TheCount" DesignerType="TextArea" Id="1"/>
+        <FieldBind Field="TheString" DesignerType="TextArea" Id="2"/>
+        <FieldBind Field="TheRightString" Text ="StringRight" DesignerType="ParameterNames" Id="3" />
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="TheCount" Type="System.Double, mscorlib" Direction="In" />
+        <Parameter Name="TheString" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="TheRightString" Type="System.String, mscorlib" Direction="Out" />
+      </Parameters>
+    </Action>
+    
+    <Action Name="String Trim"
+        ClassName="NGCCustomActivities.StringTrim"
+        Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+        AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Trim String %1 Output to %2">
+        <FieldBind Field="TheString" DesignerType="TextArea" Id="1"/>
+        <FieldBind Field="TheTrimString" Text ="StringTrim" DesignerType="ParameterNames" Id="2" />
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="TheString" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="TheTrimString" Type="System.String, mscorlib" Direction="Out" />
+      </Parameters>
+    </Action>
+
+    <Action Name="String Position"
+        ClassName="NGCCustomActivities.StringPosition"
+        Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+        AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Position of %1 in String %2 Output to %3">
+        <FieldBind Field="TheStringToFind" DesignerType="TextArea" Id="1"/>
+        <FieldBind Field="TheString" DesignerType="TextArea" Id="2"/>
+        <FieldBind Field="ThePosition" Text ="StringPosition" DesignerType="ParameterNames" Id="3" />
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="TheStringToFind" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="TheString" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="ThePosition" Type="System.Double, mscorlib" Direction="Out" />
+      </Parameters>
+    </Action>
+
+    <Action Name="String Mid"
+    ClassName="NGCCustomActivities.StringMid"
+    Assembly="NGCCustomActivities, Version=1.1.0.0, Culture=neutral, PublicKeyToken=55285224b77190ba"
+    AppliesTo="all" Category="NGC Custom Activities" UsesCurrentItem="True">
+      <RuleDesigner Sentence="Mid String from %1 start at %2 length %3 Output to %4">
+        <FieldBind Field="TheString" DesignerType="TextArea" Id="1"/>
+        <FieldBind Field="TheStart" DesignerType="TextArea" Id="2" />
+        <FieldBind Field="TheCount" DesignerType="TextArea" Id="3" />
+        <FieldBind Field="TheMidString" Text ="StringMid" DesignerType="ParameterNames" Id="4" />
+      </RuleDesigner>
+      <Parameters>
+        <Parameter Name="TheString" Type="System.String, mscorlib" Direction="In" />
+        <Parameter Name="TheStart" Type="System.Double, mscorlib" Direction="In" />
+        <Parameter Name="TheCount" Type="System.Double, mscorlib" Direction="Out" />
+        <Parameter Name="TheMidString" Type="System.String, mscorlib" Direction="Out" />
+      </Parameters>
+    </Action>
+    
+  </Actions>
+</WorkflowInfo>
